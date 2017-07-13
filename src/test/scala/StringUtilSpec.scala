@@ -18,6 +18,16 @@ class StringUtilSpec extends WordSpec with Matchers {
       StringUtil.nonRepeating(input4) shouldBe None
     }
 
+    "reverse a String recursively" in {
+      val input = "abcdef"
+      StringUtil.reverse(input) shouldBe input.reverse
+    }
+
+    "reverse a String using fold" in {
+      val input = "abcdef"
+      StringUtil.reverseFold(input) shouldBe input.reverse
+    }
+
   }
 
 }
