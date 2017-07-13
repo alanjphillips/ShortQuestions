@@ -49,4 +49,12 @@ object IntegerUtil {
       None
   }
 
+  def commonElements(list1: List[Int], list2: List[Int]): List[Int] =
+    list1.intersect(list2)
+
+  def commonElementsAlt(list1: List[Int], list2: List[Int]): List[Int] = {
+    val lookup1 = list1.map(e => (e,e)).toMap
+    list2.filter(e => lookup1.contains(e))
+  }
+
 }

@@ -55,6 +55,30 @@ class IntegerUtilSpec extends WordSpec with Matchers {
       IntegerUtil.uniqueElement(lst) shouldBe None
     }
 
+    "find the common elements of 2 int arrays" in {
+      val list1 = List(1, 2, 3, 4, 8, 9)
+      val list2 = List(0, 3, 6, 5, 4, 7)
+      IntegerUtil.commonElements(list1, list2).size shouldBe 2
+    }
+
+    "find zero common elements of 2 int arrays" in {
+      val list1 = List(1, 2, 3, 4, 8, 9)
+      val list2 = List(0, 0, 6, 5, 6, 7)
+      IntegerUtil.commonElements(list1, list2).size shouldBe 0
+    }
+
+    "find the common elements of 2 int arrays alt impl" in {
+      val list1 = List(1, 2, 3, 4, 8, 9)
+      val list2 = List(0, 3, 6, 5, 4, 7)
+      IntegerUtil.commonElementsAlt(list1, list2).size shouldBe 2
+    }
+
+    "find zero common elements of 2 int arrays alt impl" in {
+      val list1 = List(1, 2, 3, 4, 8, 9)
+      val list2 = List(0, 0, 6, 5, 6, 7)
+      IntegerUtil.commonElementsAlt(list1, list2).size shouldBe 0
+    }
+
   }
 
 }
