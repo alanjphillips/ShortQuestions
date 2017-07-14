@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 object IntegerUtil {
 
   def frequentInteger(arr: Array[Int]): Int =
@@ -15,7 +17,6 @@ object IntegerUtil {
       )._1
 
   def findPairsForDistinct(lst: List[Int], sum: Int): Map[Int, Int] = {
-
     def pairs(lst: List[Int], acc: List[(Int, Int)] = Nil): List[(Int, Int)] = lst match {
       case Nil          => acc
       case _ :: Nil     => acc
@@ -29,7 +30,6 @@ object IntegerUtil {
         }
         pairs(tail, acc ::: r)
     }
-
     pairs(lst.distinct).toMap
   }
 
@@ -53,6 +53,26 @@ object IntegerUtil {
   def commonElementsAlt(list1: List[Int], list2: List[Int]): List[Int] = {
     val lookup1 = list1.map(e => (e,e)).toMap
     list2.filter(e => lookup1.contains(e))
+  }
+
+  def fibonacciSeq(seqSize: Int): List[Long] =
+    (0 to seqSize - 2).foldLeft(List[Long](0,1)) {
+      (acc, _) => acc :+ (acc.last + acc(acc.size-2))
+    }
+
+  def fibonacciNum(num: Int): Long =
+    (0 to num - 2).foldLeft(List[Long](0,1)) {
+      (acc, _) => acc :+ (acc.last + acc(acc.size-2))
+    }(num)
+
+  def fibonacciNumTailRec(num: Int): Long = {
+    @tailrec
+    def innerFib(num: Int, secondLast: Int = 0, last: Int = 1): Int = num match {
+      case 1 => last
+      case 0 => secondLast
+      case _ => innerFib(num - 1, last, secondLast + last)
+    }
+    innerFib(num)
   }
 
 }

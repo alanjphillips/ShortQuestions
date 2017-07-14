@@ -19,7 +19,6 @@ object StringUtil {
     if (input.isEmpty) ""
     else reverse(input.tail) + input.head
 
-
   def reverseNested(input: String): String = {
     @tailrec
     def inner(in: String, acc: String = ""): String = {
@@ -34,7 +33,6 @@ object StringUtil {
       (rev, next) =>
         next + rev
     }
-
 
   def anagram(str1: String, str2: String): Boolean =
     str1.sorted equals str2.sorted

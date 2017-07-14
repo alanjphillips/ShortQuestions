@@ -79,6 +79,25 @@ class IntegerUtilSpec extends WordSpec with Matchers {
       IntegerUtil.commonElementsAlt(list1, list2).size shouldBe 0
     }
 
+    "find 10 fibonacci sequence numbers using foldLeft" in {
+      IntegerUtil.fibonacciSeq(10) shouldBe List(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55)
+    }
+
+    "find fibonacci number for 35 using foldLeft" in {
+      IntegerUtil.fibonacciNum(0) shouldBe 0
+      IntegerUtil.fibonacciNum(1) shouldBe 1
+      IntegerUtil.fibonacciNum(2) shouldBe 1
+      IntegerUtil.fibonacciNum(3) shouldBe 2
+      IntegerUtil.fibonacciNum(35) shouldBe 9227465
+    }
+
+    "find fibonacci number for 35 using tail recursion" in {
+      IntegerUtil.fibonacciNumTailRec(0) shouldBe 0
+      IntegerUtil.fibonacciNumTailRec(1) shouldBe 1
+      IntegerUtil.fibonacciNumTailRec(2) shouldBe 1
+      IntegerUtil.fibonacciNumTailRec(3) shouldBe 2
+      IntegerUtil.fibonacciNumTailRec(35) shouldBe 9227465
+    }
   }
 
 }
