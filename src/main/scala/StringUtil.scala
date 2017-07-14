@@ -41,4 +41,9 @@ object StringUtil {
   def palindrome(word: String): Boolean =
     word equals word.reverse
 
+  def uniqueChars(word: String): Boolean =
+    word.groupBy(c => c)
+      .mapValues(_.size)
+      .filter(r => r._2 > 1)
+      .isEmpty
 }

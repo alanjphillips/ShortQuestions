@@ -55,6 +55,15 @@ class StringUtilSpec extends WordSpec with Matchers {
       StringUtil.palindrome(word) shouldBe false
     }
 
+    "check that a String is composed of all unique characters" in {
+      val word = "canoe"
+      StringUtil.uniqueChars(word) shouldBe true
+    }
+
+    "check that a String is not composed of all unique characters" in {
+      val word = "tree"
+      StringUtil.uniqueChars(word) shouldBe false
+    }
   }
 
 }
