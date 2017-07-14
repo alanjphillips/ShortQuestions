@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 object StringUtil {
 
   def nonRepeating(input: String): Option[Char] = {
@@ -13,10 +15,17 @@ object StringUtil {
   }
 
   def reverse(input: String): String = {
-    if (input.length == 1)
-      input
-    else
-      input.last + reverse(input.substring(0, input.length - 1))
+    if (input.isEmpty) ""
+    else reverse(input.tail) + input.head
+  }
+
+  def reverseNested(input: String): String = {
+    @tailrec
+    def inner(in: String, acc: String = ""): String = {
+      if (in.isEmpty) acc
+      else inner(in.tail, in.head + acc)
+    }
+    inner(input)
   }
 
   def reverseFold(input: String): String = {

@@ -23,6 +23,11 @@ class StringUtilSpec extends WordSpec with Matchers {
       StringUtil.reverse(input) shouldBe input.reverse
     }
 
+    "reverse a String recursively nested function" in {
+      val input = "abcdef"
+      StringUtil.reverseNested(input) shouldBe input.reverse
+    }
+
     "reverse a String using fold" in {
       val input = "abcdef"
       StringUtil.reverseFold(input) shouldBe input.reverse
