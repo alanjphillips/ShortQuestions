@@ -35,4 +35,10 @@ object StringUtil {
     }
   }
 
+  def anagram(str1: String, str2: String): Boolean =
+    str1.sorted equals str2.sorted
+
+  def palindrome(word: String): Boolean =
+    word equals word.reverse
+
 }
