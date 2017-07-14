@@ -64,6 +64,17 @@ class StringUtilSpec extends WordSpec with Matchers {
       val word = "tree"
       StringUtil.uniqueChars(word) shouldBe false
     }
+
+    "determine whether a String is an int or a double" in {
+      val intWord = "12"
+      StringUtil.intOrDouble(intWord) shouldBe Some("int")
+
+      val doubleWord = "1.1"
+      StringUtil.intOrDouble(doubleWord) shouldBe Some("double")
+
+      val word = "abc"
+      StringUtil.intOrDouble(word) shouldBe None
+    }
   }
 
 }

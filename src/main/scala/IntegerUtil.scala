@@ -1,20 +1,18 @@
 object IntegerUtil {
 
-  def frequentInteger(arr: Array[Int]): Int = {
+  def frequentInteger(arr: Array[Int]): Int =
     arr.groupBy(e => e)
       .mapValues(_.size)
       .reduceLeft(
         (a, b) => if (a._2 > b._2) a else b
       )._1
-  }
 
-  def frequentInteger(lst: List[Int]): Int = {
+  def frequentInteger(lst: List[Int]): Int =
     lst.groupBy(e => e)
       .mapValues(_.size)
       .reduceLeft(
         (a, b) => if (a._2 > b._2) a else b
       )._1
-  }
 
   def findPairsForDistinct(lst: List[Int], sum: Int): Map[Int, Int] = {
 
