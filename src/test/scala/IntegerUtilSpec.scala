@@ -98,6 +98,14 @@ class IntegerUtilSpec extends WordSpec with Matchers {
       IntegerUtil.fibonacciNumTailRec(3) shouldBe 2
       IntegerUtil.fibonacciNumTailRec(35) shouldBe 9227465
     }
+
+    "print out the binary form of an int" in {
+      IntegerUtil.toBinary(156) shouldBe "10011100"
+      IntegerUtil.toBinary(1) shouldBe "1"
+      IntegerUtil.toBinary(2) shouldBe "10"
+      IntegerUtil.toBinary(3) shouldBe "11"
+      IntegerUtil.toBinary(4) shouldBe "100"
+    }
   }
 
 }

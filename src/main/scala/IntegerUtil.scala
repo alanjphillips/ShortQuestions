@@ -75,4 +75,15 @@ object IntegerUtil {
     innerFib(num)
   }
 
+  def toBinary(intNumber: Int): String = {
+    @tailrec
+    def divider(intNumber: Int, binary: String = ""): String = {
+      if (intNumber / 2 == 0)
+        (intNumber % 2).toString + binary
+      else
+        divider(intNumber / 2, (intNumber % 2).toString + binary)
+    }
+    divider(intNumber)
+  }
+
 }
