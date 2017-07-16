@@ -106,6 +106,14 @@ class IntegerUtilSpec extends WordSpec with Matchers {
       IntegerUtil.toBinary(3) shouldBe "11"
       IntegerUtil.toBinary(4) shouldBe "100"
     }
+
+    "parse a String representation of an integer to Int" in {
+      IntegerUtil.parseInt("1234") shouldBe 1234
+    }
+
+    "parse a String representation of an integer to Int using tail recursion" in {
+      IntegerUtil.parseIntTailRec("1234") shouldBe 1234
+    }
   }
 
 }

@@ -86,4 +86,22 @@ object IntegerUtil {
     divider(intNumber)
   }
 
+  def parseInt(strInteger: String): Int =
+    strInteger.foldLeft(0) {
+      (acc, next) => (acc * 10) + (next - 48)
+    }
+
+  def parseIntTailRec(strInteger: String): Int = {
+    @tailrec
+    def parse(next: String, acc: Int = 0): Int = {
+      if (next.isEmpty)
+        acc
+      else {
+        val res = (acc * 10) + (next.head - 48)
+        parse(next.tail, res)
+      }
+    }
+    parse(strInteger)
+  }
+
 }
