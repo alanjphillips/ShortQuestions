@@ -3,14 +3,14 @@ import scala.annotation.tailrec
 object IntegerUtil {
 
   def frequentInteger(arr: Array[Int]): Int =
-    arr.groupBy(e => e)
+    arr.groupBy[Int](e => e)
       .mapValues(_.size)
       .reduceLeft(
         (a, b) => if (a._2 > b._2) a else b
       )._1
 
   def frequentInteger(lst: List[Int]): Int =
-    lst.groupBy(e => e)
+    lst.groupBy[Int](e => e)
       .mapValues(_.size)
       .reduceLeft(
         (a, b) => if (a._2 > b._2) a else b
@@ -37,7 +37,7 @@ object IntegerUtil {
     original.size == subject.size && (subject ::: subject).containsSlice(original)
 
   def uniqueElement(lst: List[Int]): Option[Int] = {
-    val uniques = lst.groupBy(e => e)
+    val uniques = lst.groupBy[Int](e => e)
       .mapValues(_.size)
       .filter(a => a._2 == 1)
 

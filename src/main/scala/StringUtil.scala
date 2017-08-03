@@ -4,7 +4,7 @@ import scala.util.Try
 object StringUtil {
 
   def nonRepeating(input: String): Option[Char] = {
-    val uniques = input.groupBy(c => c).mapValues(_.size).filter(e => e._2 == 1)
+    val uniques = input.groupBy[Char](c => c).mapValues(_.size).filter(e => e._2 == 1)
 
     input.foldLeft(None: Option[Char]) {
       (acc, next) =>
@@ -41,7 +41,7 @@ object StringUtil {
     word equals word.reverse
 
   def uniqueChars(word: String): Boolean =
-    word.groupBy(c => c)
+    word.groupBy[Char](c => c)
       .mapValues(_.size)
       .filter(r => r._2 > 1)
       .isEmpty
