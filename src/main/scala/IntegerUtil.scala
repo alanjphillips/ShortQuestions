@@ -6,14 +6,14 @@ object IntegerUtil {
     arr.groupBy[Int](e => e)
       .mapValues(_.size)
       .reduceLeft(
-        (a, b) => if (a._2 > b._2) a else b
+        (a, b) => if (a._2 >= b._2) a else b
       )._1
 
   def frequentInteger(lst: List[Int]): Int =
     lst.groupBy[Int](e => e)
       .mapValues(_.size)
       .reduceLeft(
-        (a, b) => if (a._2 > b._2) a else b
+        (a, b) => if (a._2 >= b._2) a else b
       )._1
 
   def findPairsForDistinct(lst: List[Int], sum: Int): Map[Int, Int] = {

@@ -34,6 +34,13 @@ object StringUtil {
         next + rev
     }
 
+  def frequentLetter(input: String): Char =
+    input.groupBy[Char](c => c)
+      .mapValues(_.size)
+      .reduceLeft(
+        (a, b) => if (a._2 >= b._2) a else b
+      )._1
+
   def anagram(str1: String, str2: String): Boolean =
     str1.sorted equals str2.sorted
 

@@ -1,0 +1,27 @@
+import org.scalatest.{Matchers, WordSpec}
+
+import AssortedUtil._
+
+class AssortedUtilSpec extends WordSpec with Matchers {
+
+  "AssortedUtil" should {
+
+    "return given number of largest elements from List" in {
+      val list = List(8, 5, 3, 6, 2, 9)
+      largestElementsDecreasing(list, 4) shouldBe List(9, 8, 6, 5)
+    }
+
+    "reverse a LinkedList into groups of a given size" in {
+      val list = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+      reverseLinkedListGroups(list, 3) shouldBe List(3, 2, 1, 6, 5, 4, 9, 8, 7)
+    }
+
+    "return a list containing addition result of 2 lists" in {
+      val listA = List(5, 4)
+      val listB = List(5, 4, 3)
+      addLinkedListNumbers(listA, listB) shouldBe List(0, 9 ,3)
+    }
+
+  }
+
+}
