@@ -22,6 +22,11 @@ class AssortedUtilSpec extends WordSpec with Matchers {
       addLinkedListNumbers(listA, listB) shouldBe List(0, 9 ,3)
     }
 
+    "create a Vector of next larger elements" in {
+      val vec = Vector(1, 3, 2, 4)
+      nextLargerElement(vec) shouldBe Vector(3, 4, 4, -1)
+    }
+
   }
 
 }
