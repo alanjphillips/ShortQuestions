@@ -1,5 +1,4 @@
 import scala.annotation.tailrec
-import scala.collection.immutable.TreeSet
 
 object AssortedUtil {
 
@@ -14,7 +13,7 @@ object AssortedUtil {
       .toList
 
   def addLinkedListNumbers(listA: List[Int], listB: List[Int]): List[Int] = {
-    val res = (listA.reverse.mkString.toInt) + (listB.reverse.mkString.toInt)
+    val res = listA.reverse.mkString.toInt + listB.reverse.mkString.toInt
     res.toString.reverse.map(_.asDigit).toList
   }
 
@@ -23,7 +22,7 @@ object AssortedUtil {
     def inner(remaining: Vector[Int], res: Vector[Int] = Vector.empty[Int]): Vector[Int] = remaining match {
       case IndexedSeq() => res
       case head +: tail =>
-        val nextLarger = tail.filter(_ > head).headOption.getOrElse(-1)
+        val nextLarger = tail.find(_ > head).getOrElse(-1)
         inner(tail, res :+ nextLarger)
     }
     inner(vec)
