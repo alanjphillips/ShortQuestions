@@ -3,9 +3,7 @@ import scala.math.BigDecimal.RoundingMode
 
 object HackerRankWarmUp {
 
-  def simpleArraySum(n: Int, ar: Array[Int]): Int =  {
-    ar.sum
-  }
+  def simpleArraySum(n: Int, ar: Array[Int]): Int = ar.sum
 
   def compareTriplets(tripletA: List[Int], tripletB: List[Int]): (Int, Int) = {
     val comb = tripletA zip tripletB
@@ -21,9 +19,7 @@ object HackerRankWarmUp {
     }
   }
 
-  def aVeryBigSum(n: Int, ar: Array[Long]): Long =  {
-    ar.sum
-  }
+  def aVeryBigSum(n: Int, ar: Array[Long]): Long = ar.sum
 
   def diagonalDifference(matrix: Array[Array[Int]]): Int = {
     val primarySum = matrix.foldLeft((Queue.empty[Int], 0)) {
@@ -50,6 +46,21 @@ object HackerRankWarmUp {
       grps.getOrElse(-1, 0),
       grps.getOrElse(0, 0)
     )
+  }
+
+  def staircase(n: Int): Seq[String] = {
+    (1 to n).map(
+      i => Vector.fill(n - i)(' ').mkString + Vector.fill(i)('#').mkString
+    )
+  }
+
+  def minMaxSum(input: Array[Int]): (Long, Long) = {
+    val nums = input.map(_.toLong)
+    val sums =(0 to nums.size -1)
+      .map(nums.patch(_, Nil, 1).sum)
+      .sortWith(_ < _)
+
+    (sums.head, sums.last)
   }
 
 }

@@ -32,6 +32,21 @@ class HackerRankWarmUpSpec extends WordSpec with Matchers {
       fractionOfArray(Array(-4, 3, -9, 0, 4, 1)) shouldBe Seq[Double](0.500000, 0.333333, 0.166667)
     }
 
+    "build a staircase of size n" in {
+      staircase(6) shouldBe List(
+        "     #",
+        "    ##",
+        "   ###",
+        "  ####",
+        " #####",
+        "######"
+      )
+    }
+
+    "find min and max sum from combinations of n - 1 elements" in {
+      minMaxSum(Array(1, 2, 3, 4, 5)) shouldBe (10, 14)
+    }
+
   }
 
 }
