@@ -1,3 +1,6 @@
+import java.time.LocalDateTime
+
+import scala.annotation.tailrec
 import scala.collection.immutable.Queue
 import scala.math.BigDecimal.RoundingMode
 
@@ -56,11 +59,30 @@ object HackerRankWarmUp {
 
   def minMaxSum(input: Array[Int]): (Long, Long) = {
     val nums = input.map(_.toLong)
-    val sums =(0 to nums.size -1)
+    val sums = nums.indices
       .map(nums.patch(_, Nil, 1).sum)
       .sortWith(_ < _)
 
     (sums.head, sums.last)
+  }
+
+  def birthdayCakeCandles(n: Int, ar: Array[Int]): Int = {
+    ar.groupBy(c => c)
+      .mapValues(_.length)
+      .toVector
+      .sortWith(_._1 > _._1)
+      .headOption.getOrElse((0,0))._2
+  }
+
+  def timeConversion(s: String): String =  {
+    val orig: Array[String] = s.split(":")
+    val end =  ":" + orig.tail.mkString(":").dropRight(2)
+    val hour = orig.head.toInt
+    val start =
+      if (orig.last.endsWith("PM") && hour != 12) (orig.head.toInt + 12).toString
+      else if (orig.last.endsWith("AM") && hour == 12) "00"
+      else orig.head
+    start + end
   }
 
 }

@@ -47,6 +47,23 @@ class HackerRankWarmUpSpec extends WordSpec with Matchers {
       minMaxSum(Array(1, 2, 3, 4, 5)) shouldBe (10, 14)
     }
 
+    "blow out candles" in {
+      birthdayCakeCandles(4, Array(3, 2, 1, 3)) shouldBe 2
+      birthdayCakeCandles(1, Array(3)) shouldBe 1
+      birthdayCakeCandles(0, Array()) shouldBe 0
+      birthdayCakeCandles(4, Array(3, 3, 3, 3)) shouldBe 4
+      birthdayCakeCandles(4, Array(3, 1, 1, 1)) shouldBe 1
+      birthdayCakeCandles(4, Array(1, 1, 1, 3)) shouldBe 1
+      birthdayCakeCandles(4, Array(1, 2, 3, 3)) shouldBe 2
+    }
+
+    "convert time to 24 hr format" in {
+      timeConversion("07:05:45PM") shouldBe "19:05:45"
+      timeConversion("07:05:45AM") shouldBe "07:05:45"
+      timeConversion("12:05:45PM") shouldBe "12:05:45"
+      timeConversion("12:05:45AM") shouldBe "00:05:45"
+    }
+
   }
 
 }
