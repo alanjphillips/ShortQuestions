@@ -64,6 +64,14 @@ class HackerRankWarmUpSpec extends WordSpec with Matchers {
       timeConversion("12:05:45AM") shouldBe "00:05:45"
     }
 
+    "process student grades" in {
+      gradeStudent(4, Array(73, 67, 38, 33)) shouldBe Array(75, 67, 40, 33)
+    }
+
+    "calculate number of apples and oranges that fall in house" in {
+      applesOranges(7, 11, 5, 15, 3, 2, Array(-2, 2, 1), Array(5, -6)) shouldBe List(1, 1)
+    }
+
   }
 
 }

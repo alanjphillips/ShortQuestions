@@ -85,4 +85,27 @@ object HackerRankWarmUp {
     start + end
   }
 
+  def gradeStudent(n: Int, grades: Array[Int]): Array[Int] = {
+    grades.map(
+      g =>
+        if (g < 38) g
+        else {
+          val diff = 5 - g % 5
+          if (diff < 3) g + diff else g
+        }
+    )
+  }
+
+  def applesOranges(s: Int, t: Int, a: Int, b: Int, m: Int ,n: Int, apples: Array[Int], oranges: Array[Int]): List[Int] = {
+    val appleCount = apples.map(
+      apple => if (apple + a >= s && apple + a <= t) 1 else 0
+    ).sum
+
+    val orangeCount = oranges.map(
+      orange => if (orange + b >= s && orange + b <= t) 1 else 0
+    ).sum
+
+    List(appleCount, orangeCount)
+  }
+
 }
