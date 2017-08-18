@@ -31,3 +31,6 @@ Try("12.8".toDouble).toOption
 
 
 List(0, 1).takeRight(0)
+
+val foo = List(None, None, Some(1), None, Some(2))
+foo.flatten

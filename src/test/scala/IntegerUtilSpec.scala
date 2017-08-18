@@ -4,6 +4,13 @@ class IntegerUtilSpec extends WordSpec with Matchers {
 
   "IntegerUtil" should {
 
+    "calculate the power given a base and exponent" in {
+      IntegerUtil.power(2, 0) shouldBe 1
+      IntegerUtil.power(2, 1) shouldBe 2
+      IntegerUtil.power(2, 2) shouldBe 4
+      IntegerUtil.power(2, 3) shouldBe 8
+    }
+
     "find the most frequent integer in multi-element array" in {
       val arr = Array(0, 1 , 1, 1, 2, 2)
       IntegerUtil.frequentInteger(arr) shouldBe 1

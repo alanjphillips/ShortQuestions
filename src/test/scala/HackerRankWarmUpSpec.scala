@@ -72,6 +72,28 @@ class HackerRankWarmUpSpec extends WordSpec with Matchers {
       applesOranges(7, 11, 5, 15, 3, 2, Array(-2, 2, 1), Array(5, -6)) shouldBe List(1, 1)
     }
 
+    "pick election winner 1 " in {
+      val expected =  Array("Alex", "Michael", "Harry", "Dave", "Michael", "Victor", "Harry", "Alex", "Mary", "Mary")
+      electionWinner(expected) shouldBe "Michael"
+    }
+
+    "pick election winner 2 " in {
+      val expected =  Array("Victor", "Veronica", "Ryan", "Dave", "Maria", "Maria", "Farah", "Farah", "Ryan", "Veronica")
+      electionWinner(expected) shouldBe "Veronica"
+    }
+
+    "count maxes 1" in {
+      counts(Array(1, 4, 2, 4), Array(3, 5)) shouldBe Array(2, 4)
+    }
+
+    "count maxes 2" in {
+      counts(Array(2, 10, 5, 4, 8), Array(3, 1, 7, 8)) shouldBe Array(1, 0, 3, 4)
+    }
+
+    "count maxes 3" in {
+      counts(Array(), Array()) shouldBe Array()
+    }
+
   }
 
 }

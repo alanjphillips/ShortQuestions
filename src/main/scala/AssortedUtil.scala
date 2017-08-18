@@ -28,4 +28,17 @@ object AssortedUtil {
     inner(vec)
   }
 
+  def firstSingleton(elements: List[Int]): Option[Int] = {
+    val grps = elements.groupBy(e => e).mapValues(_.size)
+
+    elements.filter(e => grps(e) == 1).headOption
+
+  }
+
+  case class User(id: Int, name: String)
+
+  def retrieveUser(id: Int, storage: Map[Int, User]): Option[User] = {
+    storage.get(id)
+  }
+
 }

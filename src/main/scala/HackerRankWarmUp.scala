@@ -105,4 +105,23 @@ object HackerRankWarmUp {
     List(appleCount, orangeCount)
   }
 
+  def electionWinner(votes: Array[String]): String = {
+    val orderedCandidates = votes.groupBy(vote => vote)
+      .mapValues(_.length)                      // gives (candidate name -> vote count)
+      .toVector                                 // Map is converted to Vector of tuples (candidate name -> vote count) so it can be sorted
+      .sortWith(_._2 > _._2)                    // sorted by vote count
+
+    orderedCandidates
+      .takeWhile(_._2 >= orderedCandidates.head._2)     // get joint Winners
+      .sortWith(_._1 > _._1)                            // Sort by name, last alphabetically first, only sorts joint winners
+      .head._1                                          // Take the winning tuple, _.1 presents the candidate name
+  }
+
+
+  def counts(nums: Array[Int], maxes: Array[Int]): Array[Int] = {
+    maxes.map(                     // map over maxes
+      max => nums.count(_ <= max)  // take each max and count in nums
+    )
+  }
+
 }

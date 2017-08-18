@@ -27,6 +27,20 @@ class AssortedUtilSpec extends WordSpec with Matchers {
       nextLargerElement(vec) shouldBe Vector(3, 4, 4, -1)
     }
 
+    "first singleton" in {
+      firstSingleton(List(8, 2, 3, 2, 1, 8, 7, 2)) shouldBe Some(3)
+    }
+
+    "get existing user" in {
+      val db = Map(5 -> User(5, "user5"), 6 -> User(6, "user6"))
+      retrieveUser(5, db) shouldBe Some(User(5, "user5"))
+    }
+
+    "get non existing user" in {
+      val db = Map(5 -> User(5, "user5"), 6 -> User(6, "user6"))
+      retrieveUser(7, db) shouldBe None
+    }
+
   }
 
 }

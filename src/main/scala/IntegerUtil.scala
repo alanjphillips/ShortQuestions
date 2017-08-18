@@ -2,6 +2,19 @@ import scala.annotation.tailrec
 
 object IntegerUtil {
 
+  def power(base: Int, ex: Int): Int = {
+    @tailrec
+    def pow(acc: Int, c: Int): Int = {
+      if (c == 0)
+        1
+      else if (c == 1)
+        acc * base
+      else
+        pow(acc * base, c - 1)
+    }
+    pow(1, ex)
+  }
+
   def frequentInteger(arr: Array[Int]): Int =
     arr.groupBy[Int](e => e)
       .mapValues(_.size)
