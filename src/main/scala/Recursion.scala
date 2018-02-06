@@ -71,4 +71,14 @@ object Recursion {
     }(n)
   }
 
+  def reverse(str: String): String = {
+    @tailrec
+    def reverseAcc(str: String, acc: String = ""): String = str match {
+      case "" => acc
+      case s  => reverseAcc(s.tail, s.head + acc)
+    }
+
+    reverseAcc(str)
+  }
+
 }

@@ -51,6 +51,10 @@ class RecursionSpec extends WordSpec with Matchers {
       fibonacciFoldLeft(8) shouldBe 21
     }
 
+    "reverseStr" in {
+      reverse("abc") shouldBe "cba"
+    }
+
   }
 
 }
