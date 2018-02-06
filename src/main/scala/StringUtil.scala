@@ -49,13 +49,13 @@ object StringUtil {
 
   def uniqueChars(word: String): Boolean =
     word.groupBy[Char](c => c)
-      .mapValues(_.size)
+      .mapValues(_.length)
       .filter(r => r._2 > 1)
       .isEmpty
 
   def intOrDouble(str: String): Option[String] = {
     val intOption = Try(str.toInt).toOption
-    if (intOption != None)
+    if (intOption.isDefined)
       intOption.map(i => i.getClass.toString)
     else
       Try(str.toDouble).toOption.map(d => d.getClass.toString)
