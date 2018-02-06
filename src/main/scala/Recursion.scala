@@ -3,8 +3,6 @@ import scala.annotation.tailrec
 /**
   * http://codingbat.com/java/Recursion-1
   *
-  * A list of recursion problems here to try out (in Scala instead of Java tho)
-  *
   */
 object Recursion {
 
@@ -46,6 +44,31 @@ object Recursion {
     powerAcc(base, exp)
   }
 
+  def factorial(n: Int): Int = {
+    @tailrec
+    def factorialAcc(n: Int, acc: Int = 1): Int = n match {
+      case 1 => acc
+      case _ => factorialAcc(n - 1, acc * n)
+    }
 
+    factorialAcc(n)
+  }
+
+  def fibonacci(n: Int): Int = {
+    @tailrec
+    def fibonacciAcc(n: Int, prevprev: Int = 0, prev: Int = 1): Int = n match {
+      case 0 => prevprev
+      case 1 => prev
+      case _ => fibonacciAcc(n - 1, prev, prev + prevprev)
+    }
+
+    fibonacciAcc(n)
+  }
+
+  def fibonacciFoldLeft(n: Int): Int = {
+    (2 to n).foldLeft(Seq[Int](0, 1)){
+      (acc, num) => acc :+ (acc.last + acc(num - 2))
+    }(n)
+  }
 
 }
